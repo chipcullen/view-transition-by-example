@@ -1,27 +1,22 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from './layouts/Example1Layout.astro';
+import Card from '../../components/Card.astro';
 ---
 
-<Layout title="View Transition By Example">
+<Layout title="Welcome to Page 2">
 	<main>
-		<h1>Welcome to <span class="text-gradient">View Transition By Example</span></h1>
+		<h1>YO what up Welcome to <span class="text-gradient">Page 2</span></h1>
 		<p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
 		</p>
 		<ul role="list" class="link-card-grid">
+
 			<Card
-				href="/example1"
-				title="Example 1"
-				body="Click through behavior."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
+				href="./"
+				title="Page 1"
 				body="Supercharge your project with new frameworks and libraries."
 			/>
-
 		</ul>
 	</main>
 </Layout>
