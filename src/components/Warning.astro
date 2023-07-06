@@ -1,10 +1,14 @@
 <div class="warning">
-  Your browser does not support the CSS View Transition API
+  Your browser does not support the CSS View Transition API 😢
 </div>
 
 <style>
   .warning {
     outline: 1px solid red;
+    text-align: center;
+    padding: .5rem;
+    background-color: oklch(58.68% 0.259 23.82);
+    color: white;
   }
 
   @supports (view-transition-name: root) {

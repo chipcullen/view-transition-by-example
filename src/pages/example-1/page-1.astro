@@ -5,20 +5,20 @@ import Card from '../../components/Card.astro';
 ---
 
 <Layout title="Welcome to Example 1">
-		<h1>Welcome to <span class="text-gradient">Page 1</span></h1>
-		<Prism lang="html" code={`
-<head>
-...
-<meta name="view-transition" content="same-origin" />
+  <h1>Welcome to <span class="text-gradient">Page 1</span></h1>
+  <p class="instructions">All we've done is add the following <code>meta</code> tag to the <code>head</code>. That's ... it!</p>
+  <Prism lang="html" code={`
+<head lang="en">
+  ...
+  <meta name="view-transition" content="same-origin" />
 </head>
     `} />
 		<ul role="list" class="link-card-grid">
 			<Card
 				href="./page-2"
 				title="Page 2"
-				body="Supercharge your project with new frameworks and libraries."
+				body="The second page in this very basic example."
 			/>
-
 		</ul>
 </Layout>
 
