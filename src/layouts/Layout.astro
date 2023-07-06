@@ -1,9 +1,10 @@
 ---
 export interface Props {
 	title: string;
+	enableViewTransitionMetaTag?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, enableViewTransitionMetaTag = true } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -12,8 +13,13 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description">
 		<meta name="viewport" content="width=device-width" />
-		<meta name="view-transition" content="same-origin" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		{
+			enableViewTransitionMetaTag === true && (
+				<meta name="view-transition" content="same-origin" />
+			)
+		}
+		<link rel="stylesheet" href="/prism-atom-dark.css" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
@@ -29,6 +35,11 @@ const { title } = Astro.props;
 			rgb(var(--accent)),
 			#da62c4 30%,
 			white 60%);
+		--bright-gradient: linear-gradient(
+      to right in oklab,
+      oklch(55% .45 350) 14% 0%,
+			oklch(100% .4 95) 76% 94%
+    );
 	}
 	html {
 		font-family: system-ui, sans-serif;

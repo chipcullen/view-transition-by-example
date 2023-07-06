@@ -1,0 +1,15 @@
+<div class="warning">
+  Your browser does not support the CSS View Transition API
+</div>
+
+<style>
+  .warning {
+    outline: 1px solid red;
+  }
+
+  @supports (view-transition-name: root) {
+    .warning {
+      display: none;
+    }
+  }
+</style>

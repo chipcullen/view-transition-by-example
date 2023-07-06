@@ -1,24 +1,21 @@
 ---
-import Layout from './layouts/Example1Layout.astro';
+import Layout from './layouts/Example-1-Layout.astro';
 import Card from '../../components/Card.astro';
 ---
 
 <Layout title="Welcome to Page 2">
-	<main>
 		<h1>YO what up Welcome to <span class="text-gradient">Page 2</span></h1>
 		<p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
 		</p>
 		<ul role="list" class="link-card-grid">
 
 			<Card
-				href="./"
+				href="./page-1"
 				title="Page 1"
 				body="Supercharge your project with new frameworks and libraries."
 			/>
 		</ul>
-	</main>
 </Layout>
 
 <style>
