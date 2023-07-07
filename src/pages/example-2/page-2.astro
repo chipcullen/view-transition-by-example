@@ -1,35 +1,27 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from '../../layouts/Example-2-Layout.astro';
+import Card from '../../components/Card.astro';
 ---
 
-<Layout title="View Transition By Example">
-	<main>
-		<h1>Welcome to <span class="text-gradient">View Transition By Example</span></h1>
+<Layout title="Welcome to Page 2">
+		<h1>Welcome to <span class="text-gradient">Page 2</span></h1>
 		<p class="instructions">
-			A place to see what is possible using the View Transition API.
+			This is the second page in this very basic example using <em>just</em> a <code>meta</code> tag.
 		</p>
 		<ul role="list" class="link-card-grid">
 			<Card
-				href="/example-1/page-1/"
-				title="Example 1"
-				body="Basic website, er, 'MPA' behavior, using just a <meta> tag."
+				href="../page-1/"
+				title="Page 1"
+				body="Back to the first page of this simple example."
 			/>
-			<Card
-				href="/example-2/page-1/"
-				title="Example 2"
-				body="MPA behavior using a <meta> tag and some CSS animation"
-			/>
-
 		</ul>
-	</main>
 </Layout>
 
 <style>
 	main {
-		margin: auto;
+		/* margin: auto;
 		padding: 1.5rem;
-		max-width: 60ch;
+		max-width: 60ch; */
 	}
 	h1 {
 		font-size: 3rem;
