@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import {Image} from '@astrojs/image/components'
 ---
 
 <Layout title="View Transition By Example">
@@ -12,12 +13,12 @@ import Card from '../components/Card.astro';
 		<ul role="list" class="link-card-grid">
 			<Card
 				href="/example-1/page-1/"
-				title="Example 1"
+				title="Example 1: Basic"
 				body="Basic website, er, 'MPA' behavior, using just a <meta> tag."
 			/>
 			<Card
 				href="/example-2/page-1/"
-				title="Example 2"
+				title="Example 2: Zoom in/out"
 				body="MPA behavior using a <meta> tag and some CSS animation"
 			/>
 
@@ -25,8 +26,14 @@ import Card from '../components/Card.astro';
 		<p class="instructions">
 			As of July, 2023, only Chrome (version 111 and later) has implemented the View Transition API. To see the transitions, you'll need to enable the flag in Chrome at <code>chrome://flags/#view-transition</code> and <code>chrome://flags/#view-transition-on-navigation</code>.
 		</p>
-
-		<p>©copyright 2023 <a href="https://chipcullen.com">Chip Cullen</a></p>
+		<Image
+			src="/chrome-flags.png"
+			alt="Screenshot of Chrome flags with them enabled"
+			width={749}
+			height={226}
+			format='png'
+			loading="lazy" />
+		<p style="text-align: center;">©copyright 2023 <a href="https://chipcullen.com">Chip Cullen</a></p>
 	</main>
 </Layout>
 
@@ -72,5 +79,11 @@ import Card from '../components/Card.astro';
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
 		gap: 1rem;
 		padding: 0;
+	}
+
+	main img {
+	  width: 100%;
+		height: auto;
+		background-color: grey;
 	}
 </style>
