@@ -1,0 +1,23 @@
+---
+import { Prism } from '@astrojs/prism';
+import Layout from '../../layouts/Example-3-Layout.astro';
+import Card from '../../components/Card.astro';
+---
+
+<Layout title="Welcome to Example 1">
+  <h1>Welcome to <span class="text-gradient">Page 1</span></h1>
+  <p class="instructions">We started by adding the following <code>meta</code> tag to the <code>head</code>.</p>
+  <Prism lang="html" code={`
+<head lang="en">
+  ...
+  <meta name="view-transition" content="same-origin" />
+</head>
+    `} />
+		<ul role="list" class="link-card-grid">
+			<Card
+				href="../page-2/"
+				title="Page 2"
+				body="The second page has the css used."
+			/>
+		</ul>
+</Layout>

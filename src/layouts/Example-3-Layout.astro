@@ -12,7 +12,7 @@ const { title } = Astro.props;
 
 <Layout title={title} enableViewTransitionMetaTag={true}>
   <Warning />
-  <Header exampleNo={2} />
+  <Header exampleNo={3} />
   <main>
     <slot />
   </main>
@@ -30,7 +30,8 @@ const { title } = Astro.props;
 
     to {
       opacity: 0;
-      scale: 0.8;
+      scale: 0.9;
+      transform: rotateY(90deg);
     }
   }
 

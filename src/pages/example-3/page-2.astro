@@ -1,0 +1,51 @@
+---
+import { Prism } from '@astrojs/prism';
+import Layout from '../../layouts/Example-3-Layout.astro';
+import Card from '../../components/Card.astro';
+---
+
+<Layout title="Welcome to Page 2">
+		<h1>Welcome to <span class="text-gradient">Page 2</span></h1>
+		<p class="instructions">
+			This is the CSS used to acheive our animation.
+		</p>
+		<p class="instructions">With the addition of this custom CSS, note some of the layout issues. For instance, the way the transitioning page overlaps the sticky header.</p>
+		  <Prism lang="css" code={`
+main {
+	view-transition-name: main;
+}
+
+@keyframes fade {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+		scale: 0.9;
+		transform: rotateY(90deg);
+	}
+}
+
+/* Old stuff coming out */
+:root::view-transition-old(main) {
+	animation: fade 0.2s ease-out forwards;
+	width: fit-content;
+	z-index: 1;
+}
+
+/* New stuff coming in */
+:root::view-transition-new(main) {
+	animation: fade 0.3s ease-in reverse;
+	width: fit-content;
+	z-index: 1;
+}
+    `} />
+		<ul role="list" class="link-card-grid">
+			<Card
+				href="../page-1/"
+				title="Page 1"
+				body="Back to the first page that has the HTML."
+			/>
+		</ul>
+</Layout>
