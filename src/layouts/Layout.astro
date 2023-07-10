@@ -98,6 +98,11 @@ const { title, enableViewTransitionMetaTag = true } = Astro.props;
 		height: auto;
 		background-color: grey;
 	}
+
+	  /* Old stuff coming out */
+  :root::view-transition-old(main) {
+    width: fit-content;
+  }
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
