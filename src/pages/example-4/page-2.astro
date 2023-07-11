@@ -1,0 +1,68 @@
+---
+import { Prism } from '@astrojs/prism';
+import Layout from '../../layouts/Example-4-Layout.astro';
+import Card from '../../components/Card.astro';
+---
+
+<Layout title="Welcome to Page 2">
+		<h1>Welcome to <span class="text-gradient">Page 2</span></h1>
+		<p class="instructions">
+			This is the CSS used to acheive our animation.
+		</p>
+		<p class="instructions">With the addition of this custom CSS, note some of the layout issues. For instance, the way the transitioning page overlaps the sticky header.</p>
+		<p class="instructions">Note: as of this writing, view transitions don't seem to support the use of the <code>translate</code> property; it only works with the original <code>transform</code> syntax.</p>
+		  <Prism lang="css" code={`
+main {
+	view-transition-name: main;
+}
+
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		scale: 0.9;
+		transform: translate(-100%);
+	}
+
+	to {
+		opacity: 1;
+		scale: 1;
+		transform: translate(0);
+	}
+}
+
+@keyframes slideOut {
+	from {
+		opacity: 1;
+		scale: 1;
+		transform: translate(0);
+	}
+
+	to {
+		opacity: 0;
+		scale: 0.9;
+		transform: translate(100%);
+	}
+}
+
+/* New stuff coming in */
+:root::view-transition-new(main) {
+	animation: slideIn 0.3s ease-in forwards;
+	width: fit-content;
+	z-index: 1;
+}
+
+/* Old stuff coming out */
+:root::view-transition-old(main) {
+	animation: slideOut 0.2s ease-out forwards;
+	width: fit-content;
+	z-index: 1;
+}
+    `} />
+		<ul role="list" class="link-card-grid">
+			<Card
+				href="../page-1/"
+				title="Page 1"
+				body="Back to the first page that has the HTML."
+			/>
+		</ul>
+</Layout>
