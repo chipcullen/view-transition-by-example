@@ -12,7 +12,7 @@ const { title } = Astro.props;
 
 <Layout title={title} enableViewTransitionMetaTag={true}>
   <Warning />
-  <Header exampleNo={5} vertical={true} />
+  <Header exampleNo={6} />
   <main>
     <slot />
   </main>
@@ -23,44 +23,44 @@ const { title } = Astro.props;
     view-transition-name: main;
   }
 
-  @keyframes slideUp {
+  @keyframes flipIn {
     from {
       opacity: 0;
-      scale: 0.9;
-      transform: translate(0, -100%);
+      scale: 0.5;
+      transform: translate(-100%, 0) scale(0.5) rotate(-359deg);
     }
 
     to {
       opacity: 1;
       scale: 1;
-      transform: translate(0);
+      transform: translate(0) scale(1) rotate(0);
     }
   }
 
-  @keyframes slideDown {
+  @keyframes flipOut {
     from {
       opacity: 1;
-      scale: 1;
-      transform: translate(0);
+
+      transform: rotate(0) scale(1);
     }
 
     to {
       opacity: 0;
-      scale: 0.9;
-      transform: translate(0, 100%);
+
+      transform: rotate(359deg) scale(.5) translate(1000px, 0);
     }
   }
 
   /* New stuff coming in */
   :root::view-transition-new(main) {
-    animation: slideUp 0.3s ease-in forwards;
+    animation: flipIn 0.3s ease-in forwards;
     width: fit-content;
     z-index: 1;
   }
 
   /* Old stuff coming out */
   :root::view-transition-old(main) {
-    animation: slideDown 0.2s ease-out forwards;
+    animation: flipOut 0.2s ease-out forwards;
     width: fit-content;
     z-index: 1;
   }
